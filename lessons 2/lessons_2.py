@@ -57,35 +57,34 @@ class Car:
 
 
 class TownCar(Car):
-    def __init__(self, speed, color, name, is_police):
+    def __init__(self, speed, color, name, is_police, max_speed=60):
         super().__init__(speed, color, name, is_police)
+        self.max_speed = max_speed
 
     def show_speed(self):
-        if self.speed > 60:
+        if self.speed > self.max_speed:
             return f'\nSpeed of {self.name} is higher than allowed for a city car'
         else:
             return f'\nSpeed of {self.name} is normal for city car'
 
 
 class SportCar(Car):
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    pass
 
 
 class WorkCar(Car):
-    def __init__(self, speed, color, name, is_police):
+    def __init__(self, speed, color, name, is_police, max_speed=40):
         super().__init__(speed, color, name, is_police)
+        self.max_speed = max_speed
 
     def show_speed(self):
-        if self.speed > 40:
+        if self.speed > self.max_speed:
             return f'\nSpeed of {self.name} is higher than allowed for a work car'
         else:
             return f'\nSpeed of {self.name} is normal for work car'
 
 
 class PoliceCar(Car):
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
 
     def police_car(self):
         if self.is_police:
@@ -93,16 +92,6 @@ class PoliceCar(Car):
         else:
             return f'\n{self.name} is not police car'
 
-
-honda = Car(120, 'blue', 'honda', True)
-bmw = SportCar(170, 'black', 'bmw', False)
-audi = TownCar(70, 'red', 'audi', False)
-print(honda.show_speed())
-print(honda)
-print(bmw.info_car())
-print(bmw.car_go())
-print(audi.show_speed())
-print(audi.info_car())
 
 """
 2. Давайте представим, что мы занимаемся проектированием CRM для сервисного центра по обслуживанию и ремонту техники.
@@ -117,7 +106,7 @@ print(audi.info_car())
 """
 
 
-class Request:
+class Order:
 
     def __init__(self, user_name, serial_number, status_request):
         self.__id_number = uuid.uuid4()
@@ -149,17 +138,6 @@ class Request:
     def id(self):
         return f'You id number request- {self.__id_number.hex}'
 
-
-t = Request('yar', 121, False)
-print(t)
-print('\n')
-print(t.data_request)
-print(t.active_status())
-print(t.id())
-print(t.change_request_status())
-print(t.active_status())
-print(t.change_request_status())
-print(t.active_status())
 
 """
 3. Реализовать класс матрицы произвольного типа. При создании экземпляра передаётся вложенный список. Для объектов
@@ -200,16 +178,3 @@ class Matrix:
         result = [[other * j for j in i] for i in self.list_mat]
         return Matrix(result)
 
-
-x = Matrix([[2, 2],
-            [1, 5]])
-
-y = Matrix([[1, 1],
-            [5, 11]])
-
-print(x * 2)
-print('----------------------')
-print(x + y)
-print('----------------------')
-
-print(y - x)
