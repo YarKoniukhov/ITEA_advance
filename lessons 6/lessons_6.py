@@ -154,4 +154,4 @@ number_of_close_orders = """
     """
 
 num_close = execute_read_query(connection, number_of_close_orders)
-print(f'number of completed applications {str(num_close)}')
+print(f'number of completed applications {num_close}')
