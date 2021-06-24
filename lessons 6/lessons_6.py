@@ -63,8 +63,8 @@ create_table_departments = """
     department_id INTEGER,
     department_name TEXT,
     product_id SERIAL PRIMARY KEY,
-    FOREIGN KEY (product_id) REFERENCES orders (order_id),
-    FOREIGN KEY (department_id) REFERENCES employees (employee_id)
+    FOREIGN KEY (product_id) REFERENCES orders (order_id) ON DELETE RESTRICT,
+    FOREIGN KEY (department_id) REFERENCES employees (employee_id) ON DELETE RESTRICT
 )
 """
 
