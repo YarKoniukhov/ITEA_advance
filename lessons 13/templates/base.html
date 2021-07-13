@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {{ title }}
+    {% endblock %}
+</head>
+<body>
+<header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/about_us" class="nav-link active" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="/view_departments" class="nav-link ">Departments</a></li>
+        <li class="nav-item"><a href="/view_employees" class="nav-link">Employees</a></li>
+        <li class="nav-item"><a href="/view_orders" class="nav-link">Orders</a></li>
+      </ul>
+</header>
+{% block content %}
+CRM сервисной службы говорит:
+{{ content }}
+{% endblock %}
+</body>
+</html>
