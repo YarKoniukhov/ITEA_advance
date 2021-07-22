@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Table orders</title>
+
+{% endblock %}
+
+{% block content %}
+<h1>Table orders</h1>
+  <table border="1">
+   <tr>
+    <th> Created date </th>
+    <th> Updated date </th>
+    <th> Order type </th>
+    <th> Description </th>
+    <th> Status </th>
+    <th> Serial number </th>
+       <th> Creator id </th>
+    <th> Order id </th>
+   </tr>
+   {% for param in params %}
+
+   <tr><td>{{ param["created_dt"] }}</td><td>{{ param["updated_dt"] }}</td><td>{{ param["order_type"] }}</td>
+       <td>{{ param["description"] }}</td><td>{{ param["status"] }}</td><td>{{ param["serial_no"] }}</td>
+       <td>{{ param["creator_id"] }}</td><td>{{ param["order_id"] }}</td></tr>
+   {% endfor %}}
+
+  </table>
+{% endblock %}
